@@ -1,3 +1,3 @@
 export default function printMe() {
-  csonsole.error("error!");
+  console.log("54321!");
 }

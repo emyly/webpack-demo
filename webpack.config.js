@@ -4,13 +4,17 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 module.exports = {
   mode: "production",
   entry: { app: "./src/index.js", print: "./src/print.js" },
-  // devtool: "inline-source-map",
+  devtool: "inline-source-map",
+  devServer: {
+    contentBase: "./dist"
+  },
   plugins: [
-    new CleanWebpackPlugin(["dist"]),
+    // new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       title: "Output Management"
     })
   ],
+
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist")
