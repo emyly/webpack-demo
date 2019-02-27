@@ -5,19 +5,6 @@ const webpack = require("webpack");
 module.exports = {
   mode: "production",
   entry: { app: "./src/index.js" },
-  devtool: "inline-source-map",
-  devServer: {
-    contentBase: "./dist",
-    hot: true
-  },
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  },
   plugins: [
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
@@ -26,6 +13,14 @@ module.exports = {
     new webpack.NamedChunksPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
